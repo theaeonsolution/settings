@@ -1,24 +1,17 @@
 #!/bin/sh
-VPATH="$HOME/GrapheneOS/vanadium"
+VSPATH="$HOME/GrapheneOS/vanadium/src"
 
 echo "Change directory to Vanadium."
-cd $VPATH
-
-echo "Remove previous build."
-rm -r src/out/Default
-
-echo "Change directory to Vanadium source."
-cd src
+cd $VSPATH
 
 echo "Set trichrome_certdigest for your generated signing key."
 keytool -export-cert -alias vanadium -keystore vanadium.keystore | sha256sum | xclip -in -selection CLIPBOARD
 
-echo "Configure the build in the src directory."
-gn args out/Default
+echo "Remove previous build and configure the build in the src directory."
+rm -r out/Default && gn args out/Default
 
 echo "Create a python2 virtual environment and activate it."
-virtualenv2 --system-site-packages venv
-source venv/bin/activate
+virtualenv2 --system-site-packages venv && source venv/bin/activate
 
 echo "Build the components."
 ninja -C out/Default/ trichrome_webview_64_32_apk trichrome_chrome_64_32_bundle trichrome_library_64_32_apk
