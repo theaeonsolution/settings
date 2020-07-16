@@ -4,7 +4,7 @@
 echo "Symlinking .bash_profile..."
 ln -fs $PWD/dotfiles/.bash_profile ~/.bash_profile
 
-echo "Symlinking .gitconfig..."
+echo "Symlinking .gitignore_global..."
 ln -fs $PWD/dotfiles/.gitignore_global ~/.gitignore_global
 
 # Run the new .bash_profile.
