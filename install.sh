@@ -10,9 +10,15 @@ ln -fs $PWD/dotfiles/.gitignore_global ~/.gitignore_global
 # Run the new .bash_profile.
 source ~/.bash_profile
 
+echo "Enter name, press [ENTER] to continue:"
+read YEAR
+
+echo "Enter email, press [ENTER] to continue:"
+read EMAIL
+
 # Setup Git
-git config --global user.name "Name"
-git config --global user.email "Email"
+git config --global user.name $NAME
+git config --global user.email $EMAIL
 git config --global push.default simple
 git config --global pull.ff only
 git config --global core.autocrlf input
