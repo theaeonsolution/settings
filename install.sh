@@ -11,7 +11,7 @@ ln -fs $PWD/dotfiles/.gitignore_global ~/.gitignore_global
 source ~/.bash_profile
 
 echo "Enter name, press [ENTER] to continue:"
-read YEAR
+read NAME
 
 echo "Enter email, press [ENTER] to continue:"
 read EMAIL
