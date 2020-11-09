@@ -6,3 +6,6 @@
 
 - Install Fork
   https://git-fork.com/
+
+- Install VSCodium
+  https://vscodium.com
